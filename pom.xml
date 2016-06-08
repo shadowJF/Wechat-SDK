@@ -19,6 +19,21 @@
         <!-- 编译时的编码 -->  
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>  
 	</properties>
+	
+	    <distributionManagement>
+		<!-- 配置快照版本发布的仓库 -->
+		<snapshotRepository>
+			<id>nccloud-snapshots</id>
+			<name>NCCloud Snapshots Repository</name>
+			<url>http://maven.yonyou.com/nexus/content/repositories/nccloud-snapshots/</url>
+		</snapshotRepository>
+		<!-- 配置release版本发布的仓库 -->
+		<repository>
+			<id>nccloud-releases</id>
+			<name> NCCloud Releases Repository</name>
+			<url>http://maven.yonyou.com/nexus/content/repositories/nccloud-releases/</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
