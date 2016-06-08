@@ -340,7 +340,7 @@ public class HttpKit {
     response.putHeader("Pragma", "no-cache");// HTTP/1.0 caches might not implement Cache-Control
                                              // and might only implement Pragma: no-cache
     response.putHeader("Cache-Control", "no-cache");
-    response.putHeader("Expires", "");
+    response.putHeader("Expires", "Thu, 01 Jan 1970 00:00:00 GMT");
     response.putHeader("Content-Type", contenttype + ";charset=UTF-8");
     response.end(text);
   }
