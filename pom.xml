@@ -12,6 +12,7 @@
 		<!-- log4j日志文件管理包版本 -->
 		<slf4j.version>1.7.7</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
+		<vertx.version>3.2.1</vertx.version>
 		 <!-- 文件拷贝时的编码 -->  
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>  
@@ -26,7 +27,19 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
+		
+		<!-- 对vertx网络请求支持 -->
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-core</artifactId>
+			<version>${vertx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-web</artifactId>
+			<version>${vertx.version}</version>
+		</dependency>
+		
 		<!-- 导入java ee jar 包 -->
 		<dependency>
 			<groupId>javax</groupId>
