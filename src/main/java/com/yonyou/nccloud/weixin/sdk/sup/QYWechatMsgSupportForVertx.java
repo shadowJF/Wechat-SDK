@@ -71,8 +71,8 @@ public abstract class QYWechatMsgSupportForVertx {
         configServer(rc.request(), rc.response());
         return;
       }
-      QYApiConfig appconfig = getApiConfig(rc.request());
-      QYApiConfigKit.setThreadLocalApiConfig(appconfig);
+      // QYApiConfig appconfig = getApiConfig(rc.request());
+      // QYApiConfigKit.setThreadLocalApiConfig(appconfig);
       processRequestMessage(rc);
     } finally {
       QYApiConfigKit.removeThreadLocalApiConfig();
