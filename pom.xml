@@ -1,45 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.yonyou.nccloud.gateway.wechat</groupId>
+	
+	<parent>
+        <groupId>com-yonyou-nccpub</groupId>
+        <artifactId>nccpub-gateway-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    
 	<artifactId>gateway-wechat-sdk</artifactId>
-	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gateway-wechat-sdk</name>
-	<url>http://maven.apache.org</url>
-
-	<properties>
-		<!-- log4j日志文件管理包版本 -->
-		<slf4j.version>1.7.7</slf4j.version>
-		<log4j.version>1.2.17</log4j.version>
-		<vertx.version>3.2.1</vertx.version>
-		 <!-- 文件拷贝时的编码 -->  
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>  
-        <!-- 编译时的编码 -->  
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>  
-	</properties>
 	
-	    <distributionManagement>
-		<!-- 配置快照版本发布的仓库 -->
-		<snapshotRepository>
-			<id>nccloud-snapshots</id>
-			<name>NCCloud Snapshots Repository</name>
-			<url>http://maven.yonyou.com/nexus/content/repositories/nccloud-snapshots/</url>
-		</snapshotRepository>
-		<!-- 配置release版本发布的仓库 -->
-		<repository>
-			<id>nccloud-releases</id>
-			<name> NCCloud Releases Repository</name>
-			<url>http://maven.yonyou.com/nexus/content/repositories/nccloud-releases/</url>
-		</repository>
-	</distributionManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
 		
@@ -47,12 +23,10 @@
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-core</artifactId>
-			<version>${vertx.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-web</artifactId>
-			<version>${vertx.version}</version>
 		</dependency>
 		
 		<!-- 导入java ee jar 包 -->
@@ -66,9 +40,16 @@
 		<!-- 日志文件管理包 -->
 		<!-- log start -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
 		</dependency>
 
 
@@ -87,30 +68,31 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
+			<version>1.6.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j.version}</version>
+			<version>1.6.1</version>
 		</dependency>
 		<!-- log end -->
 
 		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.4</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>1.9</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -137,53 +119,18 @@
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.3</version>
-			<configuration>
-				<source>1.7</source>
-				<target>1.7</target>
-			</configuration>
-		</plugin>
-		<plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>2.5.1</version>
-			<configuration>
-			<encoding>UTF-8</encoding>
-			<source>1.7</source>
-			<target>1.7</target>
-			</configuration>
 		</plugin>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-source-plugin</artifactId>
-			<version>2.4</version>
-			<configuration>
-			<attach>true</attach>
-			</configuration>
-			<executions>
-				<execution>
-					<phase>compile</phase>
-					<goals>
-						<goal>jar</goal>
-					</goals>
-				</execution>
-			</executions>
+			<artifactId>maven-compiler-plugin</artifactId>
 		</plugin>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-resources-plugin</artifactId>
-			<version>2.7</version>
-			<configuration>
-			<encoding>UTF-8</encoding>
-			</configuration>
 		</plugin>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-surefire-plugin</artifactId>
-			<version>2.9</version>
-			<configuration>
-			<skip>true</skip>
-			</configuration>
 		</plugin>
 	</plugins>
 	</build>
