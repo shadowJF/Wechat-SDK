@@ -1,6 +1,8 @@
 package com.yonyou.nccloud.weixin.sdk.kit;
 
 import io.vertx.core.http.HttpServerResponse;
+import io.vertx.core.logging.Logger;
+import io.vertx.core.logging.LoggerFactory;
 import io.vertx.ext.web.RoutingContext;
 
 import java.io.BufferedReader;
@@ -32,14 +34,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 
 /**
  * HttpKit
  */
 public class HttpKit {
 
-  private static Logger log = Logger.getLogger(HttpKit.class);
+  private static Logger log = LoggerFactory.getLogger(HttpKit.class);
 
   private HttpKit() {}
 

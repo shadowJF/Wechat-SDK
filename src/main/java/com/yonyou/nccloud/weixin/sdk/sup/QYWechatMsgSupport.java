@@ -1,10 +1,12 @@
 package com.yonyou.nccloud.weixin.sdk.sup;
 
+import io.vertx.core.logging.Logger;
+import io.vertx.core.logging.LoggerFactory;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 
 import com.yonyou.nccloud.weixin.sdk.api.QYApiConfig;
 import com.yonyou.nccloud.weixin.sdk.api.QYApiConfigKit;
@@ -36,7 +38,7 @@ import com.yonyou.nccloud.weixin.sdk.msg.out.OutTextMsg;
  */
 public abstract class QYWechatMsgSupport {
 
-  private static final Logger log = Logger.getLogger(QYWechatMsgSupport.class);
+  private static final Logger log = LoggerFactory.getLogger(QYWechatMsgSupport.class);
   private String inMsgXml = null; // 本次请求 xml数据
   private InMsg inMsg = null; // 本次请求 xml 解析后的 InMsg 对象
 
